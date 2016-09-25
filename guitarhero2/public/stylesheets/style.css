@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande";
+  font-family: myFirstFont;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+@font-face {
+    font-family: myFirstFont;
+    src: "squealer";
+}
+
+div {
+    font-family: myFirstFont;
+}
+.lyrics{
+	font-family: myFirstFont;
+	font-size: 60px;
+}
+.scoring{
+	font-size: 40px;
+	font-style: "http://www.1001fonts.com/squealer-font.html"
+}

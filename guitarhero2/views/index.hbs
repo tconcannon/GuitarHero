@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script type="text/babel">
+var timeSpan;
+var Game = React.createClass({
+  getInitialState: function(){
+  	this.timer()
+  	return{
+  		text: "wait",
+  		note: "", 
+  		hit:false, 
+  		pressed: false,
+  		style: style1, 
+  		score: 0
+  	}
+  },
+  //keep time starter and songplay seperate for easier audio matching
+  timer: function(){
+  	setTimeout(function(){
+  		this.songplay()
+  	}.bind(this),1000)
+  },
+  enableKeys: function() {
+    window.onkeyup = function(e) {
+      if (e.keyCode == 77) {
+        console.log('m');
+      }
+      if (e.keyCode == 80) {
+        console.log('k');
+        if(!this.state.pressed && !this.state.hit){
+        	var newScore=this.state.score+10;
+      		this.setState({
+      			hit: true,
+      			pressed: true,
+      			style: styleHitC, 
+      			score: newScore
+      		})
+      	}
+      }
+    }.bind(this)
+  },
+  songplay: function(){
+  		var audio=new Audio('/audio/backinblackcut.wav')
+  		audio.play();
+  		this.setState({
+  			text: "instrumental"
+  		})
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)	
+  		}.bind(this),5460);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false
+  			})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),6520);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),7800);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),9590);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),10770);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),11800);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),12990);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),14110);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),15050);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),15990);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),16930);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),18390);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),20100);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),21330);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),22450);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),23670);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),24640);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),25670);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({text: "Back in Black",
+  				note: "A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),26745);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),27610);
+  		setTimeout(function(){
+  			this.setState({text: "I hit the sack"})
+  		}.bind(this),28141);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),28890);
+  		setTimeout(function(){
+  			this.setState({text: "I've been too long I'm glad to be back"})
+  		}.bind(this),29077);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),30730);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm let loose"})
+  		}.bind(this),31780);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),31890);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),32830);
+  		setTimeout(function(){
+  			this.setState({text: "From the noose"})
+  		}.bind(this),33300);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),34240);
+  		setTimeout(function(){
+  			this.setState({text: "That's kept me hanging about"})
+  		}.bind(this),35000);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),35100);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),36100);
+  		setTimeout(function(){
+  			this.setState({text: "I've been looking at the sky"})
+  		}.bind(this),36800);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),37170);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),38040);
+  		setTimeout(function(){
+  			this.setState({text: "'Cause it's gettin' me high"})
+  		}.bind(this),38270);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),39380);
+  		setTimeout(function(){
+  			this.setState({text: "Forget the hearse 'cause I never die"})
+  		}.bind(this),40100);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),41290);
+  		setTimeout(function(){
+  			this.setState({text: "I got nine lives"})
+  		}.bind(this),41900);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),42450);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),43570);
+  		setTimeout(function(){
+  			this.setState({text: "Cat's eyes"})
+  		}.bind(this),44300);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),44790);
+  		setTimeout(function(){
+  			this.setState({text: "Abusin' every one of them and running wild"})
+  		}.bind(this),45060);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),45790);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C*",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),46760);
+  		setTimeout(function(){
+  			this.setState({text: "'Cause I'm back"})
+  		}.bind(this),47260);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),47910);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),48910);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm back"})
+  		}.bind(this),49500);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),50220);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),42470);
+  		setTimeout(function(){
+  			this.setState({text: "Well, I'm back"})
+  		}.bind(this),52030);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),53410);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),54000);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm back"})
+  		}.bind(this),54800);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),55530);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),56500);
+  		setTimeout(function(){
+  			this.setState({text: "Well, I'm back, back"})
+  		}.bind(this),57200);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),57780);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),59000);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),60090);
+  		setTimeout(function(){
+  			this.setState({text: "Well, I'm back in black"})
+  		}.bind(this),62300);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),62720);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm back in back"})
+  		}.bind(this),65050);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"A",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),65340);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"B",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),65750);
+  		setTimeout(function(){
+  			this.enableKeys();
+  			this.setState({note:"C",
+  				style: style1,
+  				hit: false,
+  				pressed: false})
+  			setTimeout(function(){
+  				if(this.state.hit===false){
+  				this.setState({
+  					hit: true, 
+  					pressed: false, 
+  					style: styleHitIC
+  				})
+  				}
+  			}.bind(this),500)
+  		}.bind(this),66160);
+  	},
+  render: function() {
+    return (
+    <div>
+      <div className="lyrics">
+      {this.state.text}
+      </div>
+      <i className="fa fa-bolt fa-5x" aria-hidden="true" style={this.state.style}></i>
+      <div className="scoring">Score: {this.state.score}</div>
+    </div>
+    );
+  }
+});
+ReactDOM.render(
+  <Game/>,
+  document.getElementById('content')
+);
+
+var style1={
+	color: 'yellow'
+}
+var styleHitC={
+	color: 'green'
+}
+var styleHitIC={
+	color: 'red'
+}
+</script>
+</head>
+<div id="content"></div>
+</html>
+

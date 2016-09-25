@@ -9,18 +9,79 @@ var Game = React.createClass({
   getInitialState: function(){
   	this.timer()
   	return{
-  		text: "line 1"
+  		text: "wait"
   	}
   },
+  //keep time starter and songplay seperate for easier audio matching
   timer: function(){
   	setTimeout(function(){
-  		this.setState({
-  			text: "line2"
-  		})
-  		var audio=new Audio('/audio/backinblack.mp3')
-  		audio.play();
+  		this.songplay()
   	}.bind(this),1000)
   },
+  songplay: function(){
+  		var audio=new Audio('/audio/backinblackcut.wav')
+  		audio.play();
+  		this.setState({
+  			text: "instrumental"
+  		})
+  		setTimeout(function(){
+  			this.setState({text: "Back in Black"})
+  		}.bind(this),26745);
+  		setTimeout(function(){
+  			this.setState({text: "I hit the sack"})
+  		}.bind(this),28141);
+  		setTimeout(function(){
+  			this.setState({text: "I've been too long I'm glad to be back"})
+  		}.bind(this),29077);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm let loose"})
+  		}.bind(this),31780);
+  		setTimeout(function(){
+  			this.setState({text: "From the noose"})
+  		}.bind(this),33300);
+  		setTimeout(function(){
+  			this.setState({text: "That's kept me hanging about"})
+  		}.bind(this),35000);
+  		setTimeout(function(){
+  			this.setState({text: "I've been looking at the sky"})
+  		}.bind(this),36800);
+  		setTimeout(function(){
+  			this.setState({text: "'Cause it's gettin' me high"})
+  		}.bind(this),38270);
+  		setTimeout(function(){
+  			this.setState({text: "Forget the hearse 'cause I never die"})
+  		}.bind(this),40100);
+  		setTimeout(function(){
+  			this.setState({text: "I got nine lives"})
+  		}.bind(this),41900);
+  		setTimeout(function(){
+  			this.setState({text: "Cat's eyes"})
+  		}.bind(this),44300);
+  		setTimeout(function(){
+  			this.setState({text: "Abusin' every one of them and running wild"})
+  		}.bind(this),45060);
+  		setTimeout(function(){
+  			this.setState({text: "'Cause I'm back"})
+  		}.bind(this),47260);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm back"})
+  		}.bind(this),49500);
+  		setTimeout(function(){
+  			this.setState({text: "Well, I'm back"})
+  		}.bind(this),52030);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm back"})
+  		}.bind(this),54800);
+  		setTimeout(function(){
+  			this.setState({text: "Well, I'm back, back"})
+  		}.bind(this),57200);
+  		setTimeout(function(){
+  			this.setState({text: "Well, I'm back in black"})
+  		}.bind(this),62300);
+  		setTimeout(function(){
+  			this.setState({text: "Yes, I'm back in back"})
+  		}.bind(this),65050);
+  	},
   render: function() {
     return (
       <div className="testing">
